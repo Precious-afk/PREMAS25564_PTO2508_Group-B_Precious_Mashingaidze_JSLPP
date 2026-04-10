@@ -16,7 +16,7 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 - Push Final Version to GitHub: Ensure your final work is on GitHub.
 - Project Naming Convention: Make sure the name of your GitHub Repository is correct with the right naming convention. The naming convention is given in the GitHub Repo title. `StudentNo_Classcode_Group_Name-Surname_JSLPP`
 - Include Presentation Assets: Include your recorded presentation link in your GitHub README.
-- Deployment Link: Include a link to your deployed app in your GitHub README.
+- Deployment Link: Include a link to your deployed app in your GitHub README. 
 - Provide LMS Link: Submit your Project GitHub link via the [Projects] tab > JSLPP PORTFOLIO PIECE > on the Learning Management System.
 
 ## Before You Begin
@@ -28,9 +28,7 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 ### Deployment & Hosting
 
 - **Prepare the Kanban app files** for deployment, ensuring the project structure aligns with best practices for deployment.
-- **Deploy the Kanban app to Netlify**, following the process of uploading your project and setting a custom deployment link.
-- Test the deployed app to ensure that all features, including task creation, editing, local storage, and sorting, work as expected in a live environment.
-
+- **Deploy the Kanban app to Netlify**, 
 ### Initial Data Fetching & Loading State
 
 - **Fetch tasks dynamically** from an API: https://jsl-kanban-api.vercel.app/

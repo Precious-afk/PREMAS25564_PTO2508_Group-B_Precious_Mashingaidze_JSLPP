@@ -232,7 +232,9 @@ function getTasksByStatus(status) {
  * @returns {Object|undefined} Task object or undefined
  */
 function findTaskById(id) {
-  return state.tasks.find(task => task.id === id);
+    // Convert to string for comparison since IDs may be numbers from API
+    const searchId = String(id);
+  return state.tasks.find(task => String(task.id) === searchId);
 }
 
 /**
@@ -272,11 +274,13 @@ function updateTask(id, updates) {
 
 /**
  * Deletes a task by ID
- * @param {string} id - Task ID to delete
+ * @param {string|number} id - Task ID to delete
  * @returns {boolean} True if deleted, false if not found
  */
 function deleteTask(id) {
-  const index = state.tasks.findIndex(task => task.id === id);
+    //Convert to string for comparison since IDs may be numbers from API
+    const searchId = String(id);
+  const index = state.tasks.findIndex(task => String(task.id) === searchId);
   
   if (index === -1) return false;
   
