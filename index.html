@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A fully functional Kanban board application with task management, local storage persistence, and responsive design.">
+  <title>Kanban App - JSL Portfolio Piece</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- App Container -->
+  <div id="app" class="app-container">
+    
+    <!-- Sidebar (Desktop) -->
+    <aside id="sidebar" class="sidebar">
+      <!-- Logo -->
+      <div class="sidebar-logo">
+        <div class="logo">
+          <div class="logo-icon">
+            <div class="logo-bar logo-bar-1"></div>
+            <div class="logo-bar logo-bar-2"></div>
+            <div class="logo-bar logo-bar-3"></div>
+          </div>
+          <span class="logo-text">kanban</span>
+        </div>
+      </div>
+
+      <!-- Board List -->
+      <div class="sidebar-boards">
+        <h3 class="boards-title">ALL BOARDS (1)</h3>
+        <nav class="boards-nav">
+          <button class="board-item active" data-board="launch-career">
+            <svg class="board-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0.846133 0.846133C0.304363 1.3879 0 2.12271 0 2.88889V13.1111C0 13.8773 0.304363 14.6121 0.846133 15.1539C1.3879 15.6956 2.12271 16 2.88889 16H13.1111C13.8773 16 14.6121 15.6956 15.1539 15.1539C15.6956 14.6121 16 13.8773 16 13.1111V2.88889C16 2.12271 15.6956 1.3879 15.1539 0.846133C14.6121 0.304363 13.8773 0 13.1111 0H2.88889C2.12271 0 1.3879 0.304363 0.846133 0.846133ZM1.33333 13.1111V2.88889C1.33333 2.47633 1.49723 2.08067 1.78895 1.78895C2.08067 1.49723 2.47633 1.33333 2.88889 1.33333H13.1111C13.5237 1.33333 13.9193 1.49723 14.2111 1.78895C14.5028 2.08067 14.6667 2.47633 14.6667 2.88889V13.1111C14.6667 13.5237 14.5028 13.9193 14.2111 14.2111C13.9193 14.5028 13.5237 14.6667 13.1111 14.6667H2.88889C2.47633 14.6667 2.08067 14.5028 1.78895 14.2111C1.49723 13.9193 1.33333 13.5237 1.33333 13.1111Z" fill="currentColor"/>
+            </svg>
+            Launch Career
+          </button>
+        </nav>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle">
+          <svg class="theme-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 13.5C10.1935 13.5 11.3381 13.0259 12.182 12.182C13.0259 11.3381 13.5 10.1935 13.5 9C13.5 7.80653 13.0259 6.66193 12.182 5.81802C11.3381 4.97411 10.1935 4.5 9 4.5C7.80653 4.5 6.66193 4.97411 5.81802 5.81802C4.97411 6.66193 4.5 7.80653 4.5 9C4.5 10.1935 4.97411 11.3381 5.81802 12.182C6.66193 13.0259 7.80653 13.5 9 13.5Z" fill="#828FA3"/>
+            <path d="M9 0C9.24862 0 9.48726 0.0988 9.66291 0.27459C9.83856 0.45039 9.9375 0.68919 9.9375 0.9375V2.0625C9.9375 2.31081 9.83856 2.54961 9.66291 2.72541C9.48726 2.9012 9.24862 3 9 3C8.75138 3 8.51274 2.9012 8.33709 2.72541C8.16144 2.54961 8.0625 2.31081 8.0625 2.0625V0.9375C8.0625 0.68919 8.16144 0.45039 8.33709 0.27459C8.51274 0.0988 8.75138 0 9 0ZM9 15C9.24862 15 9.48726 15.0988 9.66291 15.2746C9.83856 15.4504 9.9375 15.6892 9.9375 15.9375V17.0625C9.9375 17.3108 9.83856 17.5496 9.66291 17.7254C9.48726 17.9012 9.24862 18 9 18C8.75138 18 8.51274 17.9012 8.33709 17.7254C8.16144 17.5496 8.0625 17.3108 8.0625 17.0625V15.9375C8.0625 15.6892 8.16144 15.4504 8.33709 15.2746C8.51274 15.0988 8.75138 15 9 15Z" fill="#828FA3"/>
+            <path d="M18 9C18 9.24862 17.9012 9.48726 17.7254 9.66291C17.5496 9.83856 17.3108 9.9375 17.0625 9.9375H15.9375C15.6892 9.9375 15.4504 9.83856 15.2746 9.66291C15.0988 9.48726 15 9.24862 15 9C15 8.75138 15.0988 8.51274 15.2746 8.33709C15.4504 8.16144 15.6892 8.0625 15.9375 8.0625H17.0625C17.3108 8.0625 17.5496 8.16144 17.7254 8.33709C17.9012 8.51274 18 8.75138 18 9ZM3 9C3 9.24862 2.9012 9.48726 2.72541 9.66291C2.54961 9.83856 2.31081 9.9375 2.0625 9.9375H0.9375C0.68919 9.9375 0.45039 9.83856 0.27459 9.66291C0.0988 9.48726 0 9.24862 0 9C0 8.75138 0.0988 8.51274 0.27459 8.33709C0.45039 8.16144 0.68919 8.0625 0.9375 8.0625H2.0625C2.31081 8.0625 2.54961 8.16144 2.72541 8.33709C2.9012 8.51274 3 8.75138 3 9Z" fill="#828FA3"/>
+            <path d="M15.364 2.636C15.5396 2.81174 15.6383 3.05039 15.6383 3.29875C15.6383 3.54711 15.5396 3.78576 15.364 3.9615L14.5695 4.756C14.3928 4.92638 14.1559 5.02061 13.9103 5.01831C13.6648 5.01601 13.4297 4.91737 13.256 4.74375C13.0824 4.57012 12.9838 4.33497 12.9815 4.08944C12.9792 3.84391 13.0734 3.60699 13.2438 3.4305L14.0385 2.636C14.2142 2.46039 14.4529 2.36172 14.7013 2.36172C14.9496 2.36172 15.1883 2.46039 15.364 2.636ZM4.756 13.244C4.93161 13.4197 5.03028 13.6584 5.03028 13.9068C5.03028 14.1551 4.93161 14.3938 4.756 14.5695L3.9615 15.364C3.78451 15.5344 3.54759 15.6286 3.30206 15.6263C3.05653 15.624 2.82138 15.5254 2.64775 15.3517C2.47413 15.1781 2.37549 14.9429 2.37319 14.6974C2.37089 14.4519 2.46512 14.215 2.6355 14.0385L3.4305 13.244C3.60624 13.0684 3.84489 12.9697 4.09325 12.9697C4.34161 12.9697 4.58026 13.0684 4.756 13.244Z" fill="#828FA3"/>
+            <path d="M2.636 2.636C2.81174 2.46039 3.05039 2.36172 3.29875 2.36172C3.54711 2.36172 3.78576 2.46039 3.9615 2.636L4.756 3.4305C4.92638 3.60699 5.02061 3.84391 5.01831 4.08944C5.01601 4.33497 4.91737 4.57012 4.74375 4.74375C4.57012 4.91737 4.33497 5.01601 4.08944 5.01831C3.84391 5.02061 3.60699 4.92638 3.4305 4.756L2.636 3.9615C2.46039 3.78576 2.36172 3.54711 2.36172 3.29875C2.36172 3.05039 2.46039 2.81174 2.636 2.636ZM13.244 13.244C13.4197 13.0684 13.6584 12.9697 13.9068 12.9697C14.1551 12.9697 14.3938 13.0684 14.5695 13.244L15.364 14.0385C15.5344 14.215 15.6286 14.4519 15.6263 14.6974C15.624 14.9429 15.5254 15.1781 15.3517 15.3517C15.1781 15.5254 14.9429 15.624 14.6974 15.6263C14.4519 15.6286 14.215 15.5344 14.0385 15.364L13.244 14.5695C13.0684 14.3938 12.9697 14.1551 12.9697 13.9068C12.9697 13.6584 13.0684 13.4197 13.244 13.244Z" fill="#828FA3"/>
+          </svg>
+          <button id="theme-toggle-btn" class="toggle-switch" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+            <span class="toggle-slider"></span>
+          </button>
+          <svg class="theme-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.0001 10.2122C16.7931 12.0657 15.9866 13.7999 14.7001 15.1536C13.4136 16.5073 11.7224 17.4017 9.88105 17.7038C8.03969 18.0059 6.14782 17.6987 4.50186 16.8299C2.8559 15.9611 1.54729 14.5788 0.769226 12.8888C-0.00883686 11.1987 -0.212614 9.29583 0.189315 7.47328C0.591243 5.65073 1.57693 4.00742 2.99833 2.79166C4.41973 1.57589 6.19844 0.854461 8.06669 0.738616C9.93493 0.622771 11.7887 1.11855 13.3501 2.15C13.4478 2.21792 13.5262 2.30986 13.5777 2.41719C13.6293 2.52451 13.6522 2.64349 13.6442 2.76257C13.6362 2.88165 13.5975 2.99663 13.5319 3.09636C13.4663 3.19609 13.376 3.27718 13.2701 3.33222C12.1951 3.90193 11.2972 4.75032 10.6677 5.79149C10.0381 6.83265 9.70102 8.02658 9.69236 9.24637C9.68371 10.4662 10.0039 11.6648 10.6188 12.7148C11.2337 13.7648 12.1194 14.6259 13.1856 15.211C13.2912 15.2691 13.3803 15.353 13.4441 15.455C13.5078 15.5569 13.5442 15.6735 13.5499 15.7935C13.5555 15.9135 13.5302 16.033 13.4762 16.1403C13.4223 16.2476 13.3415 16.3393 13.2418 16.4066C11.8155 17.3525 10.1117 17.8113 8.39231 17.7161C6.6729 17.6209 5.02997 16.9767 3.71399 15.8818C2.39801 14.7869 1.47807 13.3005 1.09024 11.6408C0.702411 9.98119 0.867556 8.23713 1.56072 6.6797C2.25389 5.12227 3.43752 3.83607 4.93356 3.01455C6.4296 2.19302 8.15436 1.88166 9.84178 2.12623C11.5292 2.3708 13.0877 3.15793 14.2867 4.36852C15.4858 5.5791 16.2582 7.14486 16.4862 8.8344C16.5192 9.08048 16.4616 9.33014 16.3238 9.53605C16.1859 9.74196 15.9776 9.88958 15.7381 9.95062C15.4986 10.0117 15.2456 9.98177 15.0275 9.86653C14.8094 9.75128 14.6421 9.55916 14.5584 9.32778C14.2474 8.48178 14.4474 8.08556 14.4474 8.08556" fill="#828FA3"/>
+          </svg>
+        </div>
+
+        <!-- Hide Sidebar Button -->
+        <button id="hide-sidebar-btn" class="hide-sidebar-btn">
+          <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7923 8.76153C16.7538 10.5238 15.1854 11.941 13.3062 12.8081L14.8099 14.9563C14.9286 15.1259 14.9746 15.3338 14.9382 15.5359C14.9018 15.738 14.7856 15.9172 14.6159 16.0359C14.4463 16.1545 14.2384 16.2006 14.0363 16.1642C13.8342 16.1278 13.655 16.0116 13.5363 15.8419L11.8091 13.3559C10.5832 13.7621 9.29542 13.9662 8.00002 13.9581C6.70462 13.9662 5.41688 13.7621 4.19092 13.3559L2.46373 15.8419C2.34509 16.0116 2.16586 16.1278 1.96378 16.1642C1.7617 16.2006 1.55379 16.1545 1.38414 16.0359C1.21449 15.9172 1.09833 15.738 1.06191 15.5359C1.02549 15.3338 1.07152 15.1259 1.19016 14.9563L2.69379 12.8081C0.814629 11.941 -0.753784 10.5238 -1.79224 8.76153C-1.9308 8.5267 -2.00256 8.25738 -2.00002 7.98389C-1.99748 7.71039 -1.92072 7.44246 -1.77779 7.21016C-0.261166 4.60353 2.48714 2.19176 6.0368 1.10789C6.36374 1.00607 6.71582 1.02834 7.02686 1.1697C7.3379 1.31107 7.58483 1.56119 7.72214 1.87401C7.85944 2.18683 7.87713 2.53933 7.77134 2.86485C7.66555 3.19036 7.44369 3.46558 7.14775 3.63705C5.00432 4.47171 3.19108 5.9584 1.94002 7.89453C3.54002 10.1045 6.30002 12.0045 8.00002 12.0045C9.70002 12.0045 12.46 10.1045 14.06 7.89453C12.8089 5.9584 10.9957 4.47171 8.8523 3.63705C8.55636 3.46558 8.3345 3.19036 8.2287 2.86485C8.12291 2.53933 8.1406 2.18683 8.2779 1.87401C8.41521 1.56119 8.66214 1.31107 8.97318 1.1697C9.28422 1.02834 9.6363 1.00607 9.96324 1.10789C13.5129 2.19176 16.2612 4.60353 17.7778 7.21016C17.9207 7.44246 17.9975 7.71039 18 7.98389C18.0026 8.25738 17.9308 8.5267 17.7923 8.76153Z" fill="#828FA3"/>
+          </svg>
+          Hide Sidebar
+        </button>
+      </div>
+    </aside>
+
+    <!-- Show Sidebar Button (visible when sidebar is hidden) -->
+    <button id="show-sidebar-btn" class="show-sidebar-btn hidden">
+      <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.8154 4.4335C14.2491 1.7935 11.2571 0 8.00007 0C4.74307 0 1.75007 1.7945 0.184566 4.4335C0.0637565 4.6305 0 4.8625 0 5.1C0 5.3375 0.0637565 5.5695 0.184566 5.7665C1.75107 8.4065 4.74307 10.2 8.00007 10.2C11.2571 10.2 14.2501 8.4055 15.8156 5.7665C15.9364 5.5695 16.0001 5.3375 16.0001 5.1C16.0001 4.8625 15.9364 4.6305 15.8154 4.4335ZM8.00007 8.5C7.32799 8.5 6.67073 8.3006 6.1113 7.9275C5.55186 7.5544 5.11548 7.0235 4.8582 6.4017C4.60092 5.7799 4.53407 5.0961 4.66574 4.4367C4.79742 3.7773 5.12167 3.1728 5.59702 2.6975C6.07236 2.2221 6.67686 1.8979 7.33627 1.7662C7.99569 1.6345 8.67949 1.7014 9.30127 1.9586C9.92305 2.2159 10.454 2.6523 10.8271 3.2117C11.2002 3.7711 11.3996 4.4284 11.3996 5.1005C11.3986 6.0013 11.04 6.865 10.402 7.5025C9.76407 8.14 8.90007 8.499 8.00007 8.5Z" fill="white"/>
+      </svg>
+    </button>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <!-- Mobile Logo (with dropdown trigger) -->
+        <button id="mobile-menu-btn" class="mobile-logo-btn">
+          <div class="logo">
+            <div class="logo-icon">
+              <div class="logo-bar logo-bar-1"></div>
+              <div class="logo-bar logo-bar-2"></div>
+              <div class="logo-bar logo-bar-3"></div>
+            </div>
+            <span class="logo-text">kanban</span>
+          </div>
+          <svg class="chevron-down" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="#635FC7" stroke-width="2"/>
+          </svg>
+        </button>
+
+        <!-- Desktop Logo (when sidebar is hidden) -->
+        <div id="header-logo" class="header-logo hidden">
+          <div class="logo">
+            <div class="logo-icon">
+              <div class="logo-bar logo-bar-1"></div>
+              <div class="logo-bar logo-bar-2"></div>
+              <div class="logo-bar logo-bar-3"></div>
+            </div>
+            <span class="logo-text">kanban</span>
+          </div>
+        </div>
+
+        <!-- Board Title -->
+        <h1 class="board-title">Launch Career</h1>
+
+        <!-- Add New Task Button -->
+        <button id="add-task-btn" class="add-task-btn">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.368 12V7.344H12V4.632H7.368V0H4.656V4.632H0V7.344H4.656V12H7.368Z" fill="white"/>
+          </svg>
+          <span class="add-task-text">Add New Task</span>
+        </button>
+      </header>
+
+      <!-- Board Area -->
+      <main id="board" class="board">
+        <!-- Loading State -->
+        <div id="loading-state" class="loading-state">
+          <div class="spinner"></div>
+          <p>Loading tasks...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="error-state hidden">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#EA5555" stroke-width="2"/>
+            <path d="M12 7V13" stroke="#EA5555" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="17" r="1" fill="#EA5555"/>
+          </svg>
+          <p class="error-message">Failed to load tasks</p>
+          <p id="error-details" class="error-details"></p>
+          <button id="retry-btn" class="retry-btn">Try Again</button>
+        </div>
+
+        <!-- Columns Container -->
+        <div id="columns-container" class="columns-container hidden">
+          <!-- TODO Column -->
+          <div class="column" data-status="todo">
+            <div class="column-header">
+              <div class="column-dot todo-dot"></div>
+              <h2 class="column-title">TODO (<span class="task-count">0</span>)</h2>
+            </div>
+            <div class="tasks-list" data-status="todo"></div>
+          </div>
+
+          <!-- DOING Column -->
+          <div class="column" data-status="doing">
+            <div class="column-header">
+              <div class="column-dot doing-dot"></div>
+              <h2 class="column-title">DOING (<span class="task-count">0</span>)</h2>
+            </div>
+            <div class="tasks-list" data-status="doing"></div>
+          </div>
+
+          <!-- DONE Column -->
+          <div class="column" data-status="done">
+            <div class="column-header">
+              <div class="column-dot done-dot"></div>
+              <h2 class="column-title">DONE (<span class="task-count">0</span>)</h2>
+            </div>
+            <div class="tasks-list" data-status="done"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay hidden">
+    <div class="mobile-menu">
+      <h3 class="boards-title">ALL BOARDS (1)</h3>
+      <nav class="boards-nav">
+        <button class="board-item active" data-board="launch-career">
+          <svg class="board-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.846133 0.846133C0.304363 1.3879 0 2.12271 0 2.88889V13.1111C0 13.8773 0.304363 14.6121 0.846133 15.1539C1.3879 15.6956 2.12271 16 2.88889 16H13.1111C13.8773 16 14.6121 15.6956 15.1539 15.1539C15.6956 14.6121 16 13.8773 16 13.1111V2.88889C16 2.12271 15.6956 1.3879 15.1539 0.846133C14.6121 0.304363 13.8773 0 13.1111 0H2.88889C2.12271 0 1.3879 0.304363 0.846133 0.846133ZM1.33333 13.1111V2.88889C1.33333 2.47633 1.49723 2.08067 1.78895 1.78895C2.08067 1.49723 2.47633 1.33333 2.88889 1.33333H13.1111C13.5237 1.33333 13.9193 1.49723 14.2111 1.78895C14.5028 2.08067 14.6667 2.47633 14.6667 2.88889V13.1111C14.6667 13.5237 14.5028 13.9193 14.2111 14.2111C13.9193 14.5028 13.5237 14.6667 13.1111 14.6667H2.88889C2.47633 14.6667 2.08067 14.5028 1.78895 14.2111C1.49723 13.9193 1.33333 13.5237 1.33333 13.1111Z" fill="currentColor"/>
+          </svg>
+          Launch Career
+        </button>
+      </nav>
+      <div class="theme-toggle">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 13.5C10.1935 13.5 11.3381 13.0259 12.182 12.182C13.0259 11.3381 13.5 10.1935 13.5 9C13.5 7.80653 13.0259 6.66193 12.182 5.81802C11.3381 4.97411 10.1935 4.5 9 4.5C7.80653 4.5 6.66193 4.97411 5.81802 5.81802C4.97411 6.66193 4.5 7.80653 4.5 9C4.5 10.1935 4.97411 11.3381 5.81802 12.182C6.66193 13.0259 7.80653 13.5 9 13.5Z" fill="#828FA3"/>
+          <path d="M9 0C9.24862 0 9.48726 0.0988 9.66291 0.27459C9.83856 0.45039 9.9375 0.68919 9.9375 0.9375V2.0625C9.9375 2.31081 9.83856 2.54961 9.66291 2.72541C9.48726 2.9012 9.24862 3 9 3C8.75138 3 8.51274 2.9012 8.33709 2.72541C8.16144 2.54961 8.0625 2.31081 8.0625 2.0625V0.9375C8.0625 0.68919 8.16144 0.45039 8.33709 0.27459C8.51274 0.0988 8.75138 0 9 0Z" fill="#828FA3"/>
+        </svg>
+        <button id="mobile-theme-toggle-btn" class="toggle-switch" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+          <span class="toggle-slider"></span>
+        </button>
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.0001 10.2122C16.7931 12.0657 15.9866 13.7999 14.7001 15.1536C13.4136 16.5073 11.7224 17.4017 9.88105 17.7038C8.03969 18.0059 6.14782 17.6987 4.50186 16.8299C2.8559 15.9611 1.54729 14.5788 0.769226 12.8888C-0.00883686 11.1987 -0.212614 9.29583 0.189315 7.47328C0.591243 5.65073 1.57693 4.00742 2.99833 2.79166C4.41973 1.57589 6.19844 0.854461 8.06669 0.738616C9.93493 0.622771 11.7887 1.11855 13.3501 2.15C13.4478 2.21792 13.5262 2.30986 13.5777 2.41719C13.6293 2.52451 13.6522 2.64349 13.6442 2.76257C13.6362 2.88165 13.5975 2.99663 13.5319 3.09636C13.4663 3.19609 13.376 3.27718 13.2701 3.33222C12.1951 3.90193 11.2972 4.75032 10.6677 5.79149C10.0381 6.83265 9.70102 8.02658 9.69236 9.24637C9.68371 10.4662 10.0039 11.6648 10.6188 12.7148C11.2337 13.7648 12.1194 14.6259 13.1856 15.211C13.2912 15.2691 13.3803 15.353 13.4441 15.455C13.5078 15.5569 13.5442 15.6735 13.5499 15.7935C13.5555 15.9135 13.5302 16.033 13.4762 16.1403C13.4223 16.2476 13.3415 16.3393 13.2418 16.4066C11.8155 17.3525 10.1117 17.8113 8.39231 17.7161C6.6729 17.6209 5.02997 16.9767 3.71399 15.8818C2.39801 14.7869 1.47807 13.3005 1.09024 11.6408C0.702411 9.98119 0.867556 8.23713 1.56072 6.6797C2.25389 5.12227 3.43752 3.83607 4.93356 3.01455C6.4296 2.19302 8.15436 1.88166 9.84178 2.12623C11.5292 2.3708 13.0877 3.15793 14.2867 4.36852C15.4858 5.5791 16.2582 7.14486 16.4862 8.8344C16.5192 9.08048 16.4616 9.33014 16.3238 9.53605C16.1859 9.74196 15.9776 9.88958 15.7381 9.95062C15.4986 10.0117 15.2456 9.98177 15.0275 9.86653C14.8094 9.75128 14.6421 9.55916 14.5584 9.32778C14.2474 8.48178 14.4474 8.08556 14.4474 8.08556" fill="#828FA3"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Modal (Add/Edit) -->
+  <div id="task-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title">Add New Task</h2>
+        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close modal">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12.728" width="3" height="18" rx="1.5" transform="rotate(45 12.728 0)" fill="#828FA3"/>
+            <rect y="2.12109" width="3" height="18" rx="1.5" transform="rotate(-45 0 2.12109)" fill="#828FA3"/>
+          </svg>
+        </button>
+      </div>
+
+      <form id="task-form" class="task-form">
+        <input type="hidden" id="task-id" value="">
+
+        <div class="form-group">
+          <label for="task-title-input" class="form-label">Title</label>
+          <input type="text" id="task-title-input" class="form-input" placeholder="e.g. Take coffee break" required>
+        </div>
+
+        <div class="form-group">
+          <label for="task-description-input" class="form-label">Description</label>
+          <textarea id="task-description-input" class="form-textarea" placeholder="e.g. It's always good to take a break. This 15 minute break will recharge the batteries a little." rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="task-status-select" class="form-label">Status</label>
+          <select id="task-status-select" class="form-select">
+            <option value="todo">Todo</option>
+            <option value="doing">Doing</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="task-priority-select" class="form-label">Priority</label>
+          <select id="task-priority-select" class="form-select">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <button type="submit" id="task-submit-btn" class="submit-btn">Create Task</button>
+      </form>
+
+      <button id="task-delete-btn" class="delete-btn hidden">Delete Task</button>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="delete-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content delete-modal-content">
+      <h2 class="delete-modal-title">Delete this task?</h2>
+      <p class="delete-modal-message">Are you sure you want to delete the "<span id="delete-task-name"></span>" task? This action cannot be reversed.</p>
+      <div class="delete-modal-actions">
+        <button id="confirm-delete-btn" class="confirm-delete-btn">Delete</button>
+        <button id="cancel-delete-btn" class="cancel-delete-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
