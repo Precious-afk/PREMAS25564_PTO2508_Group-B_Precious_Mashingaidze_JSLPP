@@ -8,13 +8,11 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 
 - **JSLPP GitHub Repo**: Your JSLPP GitHub repository PREMAS25564_PTO2508_Group-B_Precious_Mashingaidze_JSLPP
 
-- **Recorded Presentation:** A **5-10 minutes** 
-  - Make sure your recorded presentation link is publicly accessible and is included in your GitHub README.
+- **Recorded Presentation:** A **5-10 minutes** -https://app.airtimetools.com/recorder/s/z_LVcm3POuPDN5wMBOEVem
 
 ## HOW to Submit Your Project
 
-- Deployment Link: https://
-
+- Deployment Link: https://premas25564-my-kanban-app.netlify.app/
 
 ## Before You Begin
 
@@ -33,12 +31,14 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 
 - **Fetch tasks dynamically** from an API: https://jsl-kanban-api.vercel.app/
 
-- **| **API Fetching** | Refresh page, show tasks loading | `scripts.js` - `fetchTasks()` function
-- 
+- **| **API Fetching\*\* | Refresh page, show tasks loading | `scripts.js` - `fetchTasks()` function
+-
+
 ### Data Persistence
 
-- **| **Local Storage** | Refresh page, show data persists | `scripts.js` - `saveTasks()` and `loadTasks()` functions
-- 
+- **| **Local Storage\*\* | Refresh page, show data persists | `scripts.js` - `saveTasks()` and `loadTasks()` functions
+-
+
 ### Task Editing & Deletion
 
 | **Add Task** | Click "Add New Task", fill form with priority | `scripts.js` - `addTask()` function
